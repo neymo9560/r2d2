@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --r2d2-blue: #00d4ff;
+  --r2d2-green: #00ff88;
+  --r2d2-red: #ff4757;
+  --r2d2-gold: #ffd700;
+  --r2d2-dark: #0a0a1a;
+  --r2d2-card: #1a1a2e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 4px;
+}
+
+/* Animations pour les wins */
+@keyframes win-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+}
+
+.win-animation {
+  animation: win-pulse 0.5s ease-in-out;
+}
+
+/* Glow effects */
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), 0 0 40px rgba(0, 255, 136, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 71, 87, 0.5), 0 0 40px rgba(255, 71, 87, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Boutons */
+.btn-primary {
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  color: #0a0a1a;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 71, 87, 0.6);
+}
+
+/* Stats cards */
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-value.negative {
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
