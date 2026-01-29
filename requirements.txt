@@ -1,0 +1,35 @@
+# R2D2 - Bot HFT Scalping Hyperliquid
+# Dépendances principales
+
+# SDK Hyperliquid officiel
+hyperliquid-python-sdk>=0.1.0
+
+# Web3 pour connexion wallet Arbitrum
+web3>=6.0.0
+eth-account>=0.10.0
+
+# Interface utilisateur Streamlit
+streamlit>=1.28.0
+
+# Graphiques interactifs
+plotly>=5.18.0
+
+# Manipulation données
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Indicateurs techniques (RSI, MA, etc.)
+ta>=0.10.2
+
+# Variables d'environnement sécurisées
+python-dotenv>=1.0.0
+
+# Requêtes HTTP async pour API
+aiohttp>=3.9.0
+requests>=2.31.0
+
+# Websockets pour données temps réel
+websockets>=12.0
+
+# Date/time utilities
+python-dateutil>=2.8.2

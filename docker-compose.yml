@@ -1,0 +1,28 @@
+# Docker Compose pour R2D2 Bot
+# =============================
+# Lance le bot avec une seule commande : docker-compose up -d
+
+version: '3.8'
+
+services:
+  r2d2-bot:
+    build: .
+    container_name: r2d2-hft-bot
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      - NETWORK_MODE=${NETWORK_MODE:-testnet}
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - WALLET_ADDRESS=${WALLET_ADDRESS}
+      - INFURA_URL=${INFURA_URL:-}
+      - CONTROL_PASSWORD=${CONTROL_PASSWORD:-Bine}
+      - VIEWER_PASSWORD=${VIEWER_PASSWORD:-Bina}
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
